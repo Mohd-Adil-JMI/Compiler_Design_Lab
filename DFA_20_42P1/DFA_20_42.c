@@ -54,11 +54,14 @@ int main(int argc, char const *argv[])
 	{
 		// printf("%c", ch);
 		curr = DFA[curr][atoi(&ch)];
+		// printf("%d", curr);
 	}
+	// printf("%d", curr);
+	// printf("%d", isFinal(curr, finalStates, no_finalStates));
 	if (curr == -1 || !isFinal(curr, finalStates, no_finalStates))
-		printf("STRING ACCEPTED\n");
-	else
 		printf("STRING NOT ACCEPTED\n");
+	else
+		printf("STRING ACCEPTED\n");
 	fclose(fp);
 	return 0;
 }
