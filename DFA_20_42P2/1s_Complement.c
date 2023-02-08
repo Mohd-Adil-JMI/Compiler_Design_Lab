@@ -28,7 +28,7 @@ int main(int argc, char const *argv[])
     printf("%d %d", row, col);
     for (int i = 0; i <= row; i++)
     {
-        printf("q%d -> ",i);
+        printf("q%d -> ", i);
         for (int j = 0; j < col; j++)
         {
             printf("State: %d   Output:%d ", DFA[i][j][0], DFA[i][j][1]);
@@ -39,11 +39,15 @@ int main(int argc, char const *argv[])
     int curr = init;
     while ((ch = getc(fp)) != EOF && curr != -1)
     {
+        printf("%d", DFA[curr][atoi(&ch)][1]);
         curr = DFA[curr][atoi(&ch)][0];
         // printf("Curr->%d ", curr);
-        printf("%d", DFA[curr][atoi(&ch)][1]);
     }
     printf("\n");
     fclose(fp);
     return 0;
 }
+
+/*
+0
+0,1,0,0*/
