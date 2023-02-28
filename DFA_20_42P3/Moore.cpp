@@ -46,35 +46,35 @@ int main()
     while (getline(cin, line))
     {
         fio.open("output.in", ios::trunc | ios::out | ios::in);
-        if (line.length() == 0)
+        // if (line.length() == 0)
+        // {
+        //     continue;
+        // }
+        // else
+        // {
+        int curr = init;
+        for (auto c : line)
         {
-            continue;
-        }
-        else
-        {
-            int curr = init;
-            for (auto c : line)
+            if (curr == -1)
             {
-                if (curr == -1)
-                {
-                    break;
-                }
-                else
-                {
-                    fio << table[curr].output;
-                    if (c == '0')
-                        curr = table[curr].state1;
-                    else
-                        curr = table[curr].state2;
-                }
+                break;
             }
-            if (curr != -1)
+            else
             {
                 fio << table[curr].output;
+                if (c == '0')
+                    curr = table[curr].state1;
+                else
+                    curr = table[curr].state2;
             }
-            fio << endl;
-            fio.close();
         }
+        if (curr != -1)
+        {
+            fio << table[curr].output;
+        }
+        fio << endl;
+        fio.close();
+        // }
     }
     return 0;
 }

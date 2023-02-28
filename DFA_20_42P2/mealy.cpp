@@ -36,13 +36,13 @@ int main()
         }
         cout << endl;
     }
-    while (getline(cin, line))
+    while (cout << "Enter input : " and getline(cin, line))
     {
         fio.open("output.in", ios::trunc | ios::out | ios::in);
         int curr = init;
         for (auto c : line)
         {
-            if (curr == -1)
+            if (table[curr][atoi(&c)].first == -1)
             {
                 break;
             }

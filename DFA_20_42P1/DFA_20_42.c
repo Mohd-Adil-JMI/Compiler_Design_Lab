@@ -48,20 +48,30 @@ int main(int argc, char const *argv[])
 		}
 		printf("\n");
 	}
-	fp = fopen("input.txt", "r");
 	int curr = init;
-	while ((ch = getc(fp)) != EOF && curr != -1)
+	char input[100];
+
+	while (1)
 	{
-		// printf("%c", ch);
-		curr = DFA[curr][atoi(&ch)];
-		// printf("%d", curr);
+		printf("Enter input: ");
+		scanf("%s", input);
+		int len = strlen(input);
+		if (len == 0)
+		{
+			printf("Input string is null i.e no output.");
+			continue;
+		}
+		else
+		{
+			for (int i = 0; i < len && curr != -1; i++)
+			{
+				curr = DFA[curr][atoi(&input[i])];
+			}
+			if (curr == -1 || !isFinal(curr, finalStates, no_finalStates))
+				printf("STRING NOT ACCEPTED\n");
+			else
+				printf("STRING ACCEPTED\n");
+		}
 	}
-	// printf("%d", curr);
-	// printf("%d", isFinal(curr, finalStates, no_finalStates));
-	if (curr == -1 || !isFinal(curr, finalStates, no_finalStates))
-		printf("STRING NOT ACCEPTED\n");
-	else
-		printf("STRING ACCEPTED\n");
-	fclose(fp);
 	return 0;
 }
