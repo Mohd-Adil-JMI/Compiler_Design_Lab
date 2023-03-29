@@ -1,0 +1,12 @@
+First of the variables  :  
+A ----> # d g 
+B ----> g 
+C ----> # h 
+S ----> b d g h 
+
+
+Follow of the variables :  
+A ----> g h 
+B ----> $ g h 
+C ----> g h 
+S ----> $ 
